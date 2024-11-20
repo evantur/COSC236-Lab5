@@ -1,19 +1,25 @@
 package lab5.tests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import lab5.PaperBook;
+
+import lab5.AudioBook;
+import lab5.Book;
+import lab5.EBook;
 import lab5.Member;
+import lab5.PaperBook;
 
 class TestNotAvailableBook {
 
 	Member member1;
 	Member member2;
 	
-	PaperBook book1 = new PaperBook("Dune");
-	PaperBook book2 = new PaperBook("1984");
+	Book book1 = new EBook("Dune");
+	Book book2 = new AudioBook("1984");
 	
 	@BeforeEach
 	void setUp() throws Exception {

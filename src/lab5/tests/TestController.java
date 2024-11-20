@@ -1,14 +1,16 @@
 package lab5.tests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-import lab5.Member;
-import lab5.Library;
 import lab5.LibrarianController;
+import lab5.Library;
+import lab5.Member;
 
 class TestController {
 	
@@ -24,9 +26,9 @@ class TestController {
 		this.librarian = new LibrarianController(); // Fresh library: one member, three books
 		this.library = librarian.getLibrary(); 
 		librarian.addMember(memberName);
-		librarian.addBook(bookTitle1);
-		librarian.addBook(bookTitle2);
-		librarian.addBook(bookTitle3);
+		librarian.addPaperBook(bookTitle1);
+		librarian.addEBook(bookTitle2);
+		librarian.addAudioBook(bookTitle3);
 	}
 
 	@Test

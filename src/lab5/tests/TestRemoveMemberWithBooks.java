@@ -1,28 +1,35 @@
 package lab5.tests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import lab5.AudioBook;
+import lab5.Book;
+import lab5.EBook;
+import lab5.Library;
 import lab5.Member;
 import lab5.PaperBook;
-import lab5.Library;
 
 
 class TestRemoveMemberWithBooks {
 
 	Library library;
 	Member member;
-	PaperBook book1;
-	PaperBook book2;
-	PaperBook book3;
+	Book book1;
+	Book book2;
+	Book book3;
 
 	@BeforeEach
 	void setUp() throws Exception {
 		this.library = new Library(); // Fresh library: one member, two tests
 		book1 = new PaperBook("Dune");
-		book2 = new PaperBook("1984");
-		book3 = new PaperBook("Moby Dick");
+		book2 = new EBook("1984");
+		book3 = new AudioBook("Moby Dick");
 		member = new Member("Dude");
 		library.addMember(member);
 		library.addBook(book1);
