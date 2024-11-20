@@ -1,11 +1,11 @@
 package lab5;
 
-public class EBook implements Book{
+public class AudioBook implements Book{
 
 	private String title;
 	private Boolean isAvailable;
 
-	public EBook(String title) {
+	public AudioBook(String title) {
 		this.title = title;
 		this.isAvailable = true;
 	}
@@ -19,7 +19,7 @@ public class EBook implements Book{
 	}
 	@Override
 	public String toString() {
-		return "EBook: " + title;
+		return "AudioBook: " + title;
 	}
 	@Override
 	public void setIsAvailable(boolean isAvailable) {
@@ -29,4 +29,5 @@ public class EBook implements Book{
 	public boolean getIsAvailable() {
 		return isAvailable;
 	}
+
 }
