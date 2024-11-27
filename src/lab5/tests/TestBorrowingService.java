@@ -19,7 +19,7 @@ class TestBorrowingService {
 	
 	@BeforeEach
 	void setUp() {
-		service = new BorrowingService();
+		service = BorrowingService.getInstance();
 		george = new Member("George");
 		book1 = new PaperBook("The Two Towers");
 	}
@@ -27,13 +27,13 @@ class TestBorrowingService {
 	@Test
 	void BorrowingServiceSuccessfulBorrow() {
 		// test successful borrow
-		assertTrue(service.borrowBook(george, book1));					
+		assertTrue(service.borrowBook(george, book1).isSuccess());					
 	}
 	
 	@Test
 	void BorrowingServiceBorrowFailure() {
 		service.borrowBook(george, book1);
-		assertFalse(service.borrowBook(george, book1));
+		assertFalse(service.borrowBook(george, book1).isSuccess());
 	}
 	
 	@Test
