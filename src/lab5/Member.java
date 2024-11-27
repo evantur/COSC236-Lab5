@@ -9,10 +9,10 @@ public class Member {
 	private ArrayList<Book> borrowedBooks; // Book class dependency
 	private BorrowingService borrowingService;
 	
-	public Member(String name) {
+	public Member(String name, BorrowingService service) {
 		this.name = name;
 		this.borrowedBooks = new ArrayList<>();
-		this.borrowingService = BorrowingService.getInstance();
+		this.borrowingService = service;
 	}
 	public String getName() {
 		return name;
@@ -28,21 +28,15 @@ public class Member {
 	}		
 	
 	public void borrowBook(Book book) {		
-		boolean success = borrowingService.borrowBook(this, book); 
+		boolean success = borrowingService.borrowBook(this, book).isSuccess(); 
 		if(success) {
 			System.out.println(name + "has borrowed" + book.getTitle());
 		} else {
 			System.out.println("The book" + book.getTitle() + "is unavailable.");
 		}
-	public void borrowBook(Book book) {
-		BorrowingService borrowingService = new BorrowingService(); 
-		BorrowingBookResult borrowingResult = borrowingService.borrowBook(this, book);
-		System.out.println("Success: " + borrowingResult.isSuccess() +
-				 ": " + borrowingResult.getBorrowingMessage()); 
 	}
 	 
-	public void returnBook(Book book) {
-		BorrowingService borrowingService = new BorrowingService();
+	public void returnBook(Book book) {	
 		BorrowingBookResult borrowingResult = borrowingService.borrowBook(this, book);
 		System.out.println("Success: " + borrowingResult.isSuccess() +
 				 ": " + borrowingResult.getBorrowingMessage());
