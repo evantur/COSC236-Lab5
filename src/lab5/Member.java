@@ -34,17 +34,18 @@ public class Member {
 		} else {
 			System.out.println("The book" + book.getTitle() + "is unavailable.");
 		}
+	public void borrowBook(Book book) {
+		BorrowingService borrowingService = new BorrowingService(); 
+		BorrowingBookResult borrowingResult = borrowingService.borrowBook(this, book);
+		System.out.println("Success: " + borrowingResult.isSuccess() +
+				 ": " + borrowingResult.getBorrowingMessage()); 
 	}
-	
+	 
 	public void returnBook(Book book) {
 		BorrowingService borrowingService = new BorrowingService();
-		boolean success = borrowingService.returnBook(this, book);
-		if (success) {
-			System.out.println(name + " has returned " + book.getTitle());
-		}
-		else {
-			System.out.println(name + " could not return " + book.getTitle());
-		}
+		BorrowingBookResult borrowingResult = borrowingService.borrowBook(this, book);
+		System.out.println("Success: " + borrowingResult.isSuccess() +
+				 ": " + borrowingResult.getBorrowingMessage());
 	}
 	public void listBorrowedBooks() {
 		for (Book book : borrowedBooks)
