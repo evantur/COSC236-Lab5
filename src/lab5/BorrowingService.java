@@ -21,13 +21,21 @@ public class BorrowingService implements BorrowingServiceAPI{
 			book.setIsAvailable(false);
 			member.getBorrowedBooks().add(book);
 			return result;
+		} else if(book == null) {
+			result.setSuccess(false);
+			result.setBorrowingMessage("This book does not exist.");
+			return result;
+		} else if(member.borrowedBooksCount() >= 3) {
+			result.setSuccess(false);
+			result.setBorrowingMessage("You have reached your borrowing limit.");
+			return result;
 		} else {
 			result.setSuccess(false);
 			result.setBorrowingMessage("Could not borrow book: " + book);
 			return result;
 		}
 	}
-
+ 
 	@Override
 	public BorrowingBookResult returnBook(Member member, Book book) {
 		BorrowingBookResult result = new BorrowingBookResult(true, "Borrowed book: " + book + "is returned.");
