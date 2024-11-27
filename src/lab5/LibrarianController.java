@@ -2,10 +2,10 @@ package lab5;
 
 public class LibrarianController {
 	
-	Library library; // Library dependency
-	
+	private Library library; // Library dependency
+	private BorrowingService borrowingService;
 	public LibrarianController( ) {
-		this.library = new Library(); // Constructor injection
+		this.borrowingService = borrowingService.getInstance(); // Constructor injection
 	}
 	public Library getLibrary() {
 		return this.library;
