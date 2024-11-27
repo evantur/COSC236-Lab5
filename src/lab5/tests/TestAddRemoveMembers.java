@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import lab5.AudioBook;
 import lab5.Book;
+import lab5.EBook;
 import lab5.Library;
 import lab5.Member;
 import lab5.PaperBook;
@@ -27,6 +28,7 @@ class TestAddRemoveMembers {
 	Member member2 = new Member("Gal");
 	Book book1 = new PaperBook("Dune");
 	Book book2 = new AudioBook("1984");
+	Book book3 = new EBook("Moby Dick");
 	
 	@Test
 	void AddMember() {
@@ -63,19 +65,23 @@ class TestAddRemoveMembers {
 		assertEquals(library.membersCount(), 2, "Two members should be in the library");
 		library.addBook(book1);
 		library.addBook(book2);
-		assertEquals(library.booksCount(), 2, "Two books should be in the library");
+		library.addBook(book3);
+		assertEquals(library.booksCount(), 3, "Three books should be in the library");
 		
 		member1.borrowBook(book1);
 		member1.borrowBook(book2);
-		assertEquals(member1.borrowedBooksCount(), 2, "Should be two borrowed books");
+		member1.borrowBook(book3);
+		assertEquals(member1.borrowedBooksCount(), 3, "Should be three borrowed books");
 		assertFalse(book1.getIsAvailable(), "Book should be not available");
 		assertFalse(book2.getIsAvailable(), "Book should be not available");
+		assertFalse(book3.getIsAvailable(), "Book should be not available");
 		
 		library.removeMember(member1);
 		assertEquals(library.membersCount(), 1, "Only one member should remain");
-		assertEquals(library.booksCount(), 2, "Two books should be in the library");
+		assertEquals(library.booksCount(), 3, "Three books should be in the library");
 		assertTrue(book1.getIsAvailable(), "Book should be available");
 		assertTrue(book2.getIsAvailable(), "Book should be available");
+		assertTrue(book3.getIsAvailable(), "Book should be available");
 				
 	}
 }
