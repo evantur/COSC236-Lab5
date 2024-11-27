@@ -21,6 +21,16 @@ public class Member {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public void borrowBook(Book book) {
+		BorrowingService borrowingService = new BorrowingService();
+		boolean success = borrowingService.borrowBook(this, book);
+		if (success) {
+			System.out.println("Success!");
+		}
+		else {
+			System.out.println("Something went wrong");
+		}
+	}
 	public String toString() {
 		return "Member: " + name;
 	}		
