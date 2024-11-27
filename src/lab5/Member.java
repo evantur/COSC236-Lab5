@@ -31,6 +31,15 @@ public class Member {
 			System.out.println("Something went wrong");
 		}
 	}
+	public void returnBook(Book book) {
+		BorrowingService borrowingService = new BorrowingService();
+		boolean success = borrowingService.returnBook(this, book);
+		if(success) {
+			System.out.println("Success!");
+		}else {
+			System.out.println("Something went wrong");
+		}
+	}
 	public String toString() {
 		return "Member: " + name;
 	}		
