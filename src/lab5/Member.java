@@ -29,15 +29,16 @@ public class Member {
 		BorrowingService borrowingService = new BorrowingService();
 		boolean success = borrowingService.borrowBook(this, book); 
 		if(success) {
-			borrowedBooks.add(book);
+			System.out.println(name + "has borrowed" + book.getTitle());
 		} else {
 			System.out.println("The book" + book.getTitle() + "is unavailable.");
 		}
 	}
 	public void returnBook(Book book) {
 		if (book != null) {
-			borrowedBooks.remove(book);
-			book.setIsAvailable(true);
+			BorrowingService borrowingService = new BorrowingService();
+			boolean success = borrowingService.returnBook(this, book);
+			System.out.println(name + "has returned" + book.getTitle());
 		}
 	}
 	public void listBorrowedBooks() {
