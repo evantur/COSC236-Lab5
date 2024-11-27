@@ -2,6 +2,12 @@ package lab5;
 
 public class BorrowingService implements BorrowingServiceAPI{
 
+	private static BorrowingService instance;
+	private int borrowingLimit;
+	private BorrowingService() {
+		borrowingLimit = 3;
+	}
+	
 	@Override
 	public boolean borrowBook(Member member, Book book) {
 		if (book != null && book.getIsAvailable() == true) {		
