@@ -37,7 +37,7 @@ class TestBorrowingService {
 	}
 	
 	@Test
-	void BorrowigServiceSuccessfulReturn() {
+	void BorrowingServiceSuccessfulReturn() {
 		service.borrowBook(george, book1);
 		assertTrue(george.getBorrowedBooks().contains(book1));
 		service.returnBook(george, book1);
