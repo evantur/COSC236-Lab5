@@ -21,16 +21,6 @@ public class Member {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void borrowBook(Book book) {
-		BorrowingService borrowingService = new BorrowingService();
-		boolean success = borrowingService.borrowBook(this, book);
-		if (success) {
-			System.out.println("Success!");
-		}
-		else {
-			System.out.println("Something went wrong");
-		}
-	}
 	public String toString() {
 		return "Member: " + name;
 	}		
@@ -42,13 +32,6 @@ public class Member {
 			System.out.println(name + "has borrowed" + book.getTitle());
 		} else {
 			System.out.println("The book" + book.getTitle() + "is unavailable.");
-		}
-	}
-	public void returnBook(Book book) {
-		if (book != null) {
-			BorrowingService borrowingService = new BorrowingService();
-			boolean success = borrowingService.returnBook(this, book);
-			System.out.println(name + "has returned" + book.getTitle());
 		}
 	}
 
