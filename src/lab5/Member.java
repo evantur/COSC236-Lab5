@@ -23,26 +23,23 @@ public class Member {
 	}
 	public String toString() {
 		return "Member: " + name;
-<<<<<<< Updated upstream
 	}		
-=======
-	}
+	
 	public void borrowBook(Book book) {
 		BorrowingService borrowingService = new BorrowingService();
 		boolean success = borrowingService.borrowBook(this, book); 
 		if(success) {
 			borrowedBooks.add(book);
 		} else {
-			System.out.println("")
+			System.out.println("The book" + book.getTitle() + "is unavailable.");
 		}
-		}
+	}
 	public void returnBook(Book book) {
 		if (book != null) {
 			borrowedBooks.remove(book);
 			book.setIsAvailable(true);
 		}
 	}
->>>>>>> Stashed changes
 	public void listBorrowedBooks() {
 		for (Book book : borrowedBooks)
 			System.out.println(book); // book.toString()
