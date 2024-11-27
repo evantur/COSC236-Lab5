@@ -35,5 +35,4 @@ class TestBorrowingService {
 		service.borrowBook(george, book1);
 		assertFalse(service.borrowBook(george, book1));
 	}
-
 }
