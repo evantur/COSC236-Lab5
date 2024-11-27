@@ -26,7 +26,9 @@ public class Member {
 	public String toString() {
 		return "Member: " + name;
 	}		
-	
+	public BorrowingService getBorrowingService() {
+		return borrowingService;
+	}
 	public void borrowBook(Book book) {		
 		boolean success = borrowingService.borrowBook(this, book).isSuccess(); 
 		if(success) {
