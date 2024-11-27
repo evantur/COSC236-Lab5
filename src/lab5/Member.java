@@ -34,7 +34,17 @@ public class Member {
 			System.out.println("The book" + book.getTitle() + "is unavailable.");
 		}
 	}
-
+	
+	public void returnBook(Book book) {
+		BorrowingService borrowingService = new BorrowingService();
+		boolean success = borrowingService.returnBook(this, book);
+		if (success) {
+			System.out.println(name + " has returned " + book.getTitle());
+		}
+		else {
+			System.out.println(name + " could not return " + book.getTitle());
+		}
+	}
 	public void listBorrowedBooks() {
 		for (Book book : borrowedBooks)
 			System.out.println(book); // book.toString()

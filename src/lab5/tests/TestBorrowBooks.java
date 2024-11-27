@@ -60,8 +60,7 @@ class TestBorrowBooks {
 		// return second book
 		member1.returnBook(book2);
 		assertTrue(book2.getIsAvailable(), "Book should be available after return");
-		assertEquals(member1.borrowedBooksCount(), 0, "Member 1 should have no books");
-		
+		assertEquals(member1.borrowedBooksCount(), 0, "Member 1 should have no books");		
 	}
 
 }
