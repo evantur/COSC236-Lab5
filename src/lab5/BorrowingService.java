@@ -7,9 +7,10 @@ public class BorrowingService implements BorrowingServiceAPI{
 		if (book != null && book.getIsAvailable() == true) {		
 			book.setIsAvailable(false);
 			member.getBorrowedBooks().add(book);
-			System.out.println("Borrowing book: " + book);
+			System.out.println(member.getName() + " is borrowing book: " + book.getTitle());
 			return true;
 		}
+		System.out.println(member.getName() + " could not borrow book: " + book.getTitle());
 		return false;
 	}
 
@@ -18,9 +19,11 @@ public class BorrowingService implements BorrowingServiceAPI{
 		if (book != null && member.getBorrowedBooks().contains(book)) {
 			member.getBorrowedBooks().remove(book);
 			book.setIsAvailable(true);
-			System.out.println("Returning book: " + book);
+			System.out.println(member.getName() + " is returning book: " + book);
 			return true;
 		}
+		System.out.println(member.getName() + " could not return book: " + book.getTitle());
 		return false;
 	}
 }
+ 
