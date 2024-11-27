@@ -1,8 +1,8 @@
 package lab5;
 
 public class BorrowingBookResult {
-	boolean isSuccess;
-	String borrowingMessage;
+	private boolean isSuccess;
+	private String borrowingMessage;
 	
 	public BorrowingBookResult(boolean isSuccess, String borrowingMessage) {
 		this.isSuccess = isSuccess;
@@ -19,6 +19,10 @@ public class BorrowingBookResult {
 	}
 	public void setBorrowingMessage(String borrowingMessage) {
 		this.borrowingMessage = borrowingMessage;
+	}
+	@Override
+	public String toString() {
+		return "BorrowingBookResult [isSuccess=" + isSuccess + ", borrowingMessage=" + borrowingMessage + "]";
 	}
 	
 }
